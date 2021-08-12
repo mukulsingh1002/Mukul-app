@@ -1,0 +1,48 @@
+.content {
+	display: flex;
+}
+.sidebar-wrap {
+	width: 150px;
+	background-color: rgb(111, 205, 92);
+}
+.main-area {
+	flex-grow: 1;
+}
+
+.d-cards {
+	height: 100px;
+	margin: 10px;
+	padding: 10px;
+	color: white !important;
+}
+.d-card-primary{
+	background: linear-gradient(
+		16deg,
+		rgba(81, 234, 101, 0.562) 0%,
+		rgb(54, 172, 70) 100%
+	);
+}
+.d-card-indigo {
+	background: linear-gradient(
+		16deg,
+		rgb(215, 84, 84) 0%,
+		rgb(206, 74, 74) 100%
+	);
+}
+.d-card-orange {
+	background: linear-gradient(
+		16deg,
+		rgb(245, 235, 90) 0%,
+		rgb(121, 106, 255) 100%
+	);
+}
+.myDIV {
+	width: 300px;
+	height: 300px;
+	background-color: coral;
+	color: white;
+  }
+  .background
+  {
+	background-color:lightgray
+  }
