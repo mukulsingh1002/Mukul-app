@@ -72,7 +72,7 @@ export default function Login(props) {
 		}
 		async function attemptLogin() {
 			let result = await fetch(
-				"https://cashie-backend.herokuapp.com/api/auth/login",//http://localhost:8080/api//https://cashie-backend.herokuapp.com/api
+				"http://localhost:8080/api/auth/login",//http://localhost:8080/api//https://cashie-backend.herokuapp.com/api
 
 				{
 					method: "POST",

@@ -44,7 +44,7 @@ function Users(props) {
 	const [refresh, setRefresh] = useState(false);
 
 	useEffect(() => {
-		let URL = `https://cashie-backend.herokuapp.com/api/user?${queryString.stringify(query)}`;
+		let URL = `http://localhost:8080/api/user?${queryString.stringify(query)}`;
 		axios({
 			url: URL,
 			headers: {
@@ -65,7 +65,7 @@ function Users(props) {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axios
-					.delete(`https://cashie-backend.herokuapp.com/api/user/${id}`)
+					.delete(`http://localhost:8080/api/user/${id}`)
 					.then((result) => {
 						if (result.data.status === "success") {
 							Swal.fire("Deleted!", "User deleted successfully...", "success");
@@ -89,7 +89,7 @@ function Users(props) {
 		<div>
 			<Container>
 				<Grid container justifyContent="flex-end" className={classes.firstRow}>
-					<Link to={`https://cashie-backend.herokuapp.com/api/user/new`}>
+					<Link to={`http://localhost:8080/api/user/new`}>
 						<Button variant="contained" color="secondary">
 							New User
 						</Button>

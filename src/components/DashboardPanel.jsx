@@ -100,9 +100,10 @@ function DashboardPanel() {
   }, [])
 
   return (
-    <div className="dashBoardPannel">
+	  <body className="p3">
+     <div>
      <Container>
-          <h2 className="DashBoardPanel-header">Dashboard</h2>
+          <h2>Dashboard</h2>
       <Grid container>
         <Grid items xs={12} lg={4}>
           <Paper className="m-red-card">
@@ -182,6 +183,7 @@ function DashboardPanel() {
       </Grid>
      </Container>
     </div>
+	</body>
   );
 }
 
