@@ -100,10 +100,10 @@ function DashboardPanel() {
   }, [])
 
   return (
-	  <body className="p3">
+	  <body className="h1">
      <div>
      <Container>
-          <h2>Dashboard</h2>
+          <h2 className="h1">Dashboard</h2>
       <Grid container>
         <Grid items xs={12} lg={4}>
           <Paper className="m-red-card">
@@ -111,7 +111,7 @@ function DashboardPanel() {
                 <div className="m-red-card-data">
                   {dashboardData && dashboardData.data.count}
                     </div>
-                <span className="m-red-card-content-t">Transaction</span>
+                <span className="m-red-card-content-t" >Transactions</span>
             
             </div>
             <div className="m-red-card-image" ><PhonelinkLockIcon className="card-icon" /></div>

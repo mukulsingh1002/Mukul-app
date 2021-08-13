@@ -39,7 +39,7 @@ export default function Header(props) {
 			<ul className="right-nav">
 
 				<li>
-					{/* <Avatar onClick={handleClick}>AK</Avatar> */}
+					{/* <Avatar onClick={handleClick}>MK</Avatar> */}
 					<AccountCircleIcon onClick={handleClick} />
 					<Popover
 						id={id}

@@ -9,12 +9,12 @@ import Category from "../components/Category";
 import DashboardPanel from '../components/DashboardPanel';
 import Transactions from "../components/Transactions";
 import Users from '../components/Users';
-import UserForm from '../components/UserForm';
+import UserForm from '../components/userForm';
 import ProductForm from '../components/productsForm';
 import Report from '../components/Report';
 import Account from '../components/Account';
 import Setting from '../components/Setting';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 import CategoryForm from '../components/CategoryForm';
 
 export default function dashboard(props) {

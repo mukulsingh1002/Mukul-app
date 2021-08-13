@@ -10,7 +10,7 @@ import {
 	Modal,
 } from "@material-ui/core";
 import React, { useState, useEffect, useContext } from "react";
-import axios from "./config/axiosConfig";
+import axios from "./config/axiosConfig.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -28,7 +28,6 @@ import TableRow from "@material-ui/core/TableRow";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import ReciptModal from "./ReceiptModal";
 
 function a11yProps(index) {
@@ -69,14 +68,21 @@ const useStyles = makeStyles((theme) => ({
 		flexWrap: "wrap",
 	},
 	productCard: {
-		width: "30%",
-		marginTop: "15px",
-		position: "relative",
+	    maxWidth: "16.666667%",
+	 	marginTop: "15px",
+	    boxSizing: "borderbox",
+	    flexBasis: "16.666667%", 
+        padding:" 4px",
+		margin:"4px",
+        height:"200px",
+		   color:"#4d4d4d",
+    
 	},
 	productsWrapper: {
 		height: "85vh",
 		overflowY: "auto",
 		padding: "10px",
+		width:"65%"
 	},
 	tableOne: {
 		height: "60vh",
@@ -112,6 +118,7 @@ function Transactions() {
 		setAllProducts(result.data.data.all);
 		setProductCategories(result.data.data.categories);
 	}
+	console.log(cartDetails);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -145,7 +152,7 @@ function Transactions() {
 	}, []);
 	return (
 		<div>
-			<h2>Transactions</h2>
+			<h2  className="header">Transactions</h2>
 			<Container>
 				<Grid container>
 					<Grid item sm={8} className={classes.productsWrapper}>
@@ -173,48 +180,29 @@ function Transactions() {
 											<Card
 												onClick={() => cartDetails.updateCartItems(product._id)}
 												className={classes.productCard}>
-												<div
-													className={`m-overlay ${
-														cartDetails.cartItems.find(
-															(i) => i._id === product._id,
-														)
-															? "active"
-															: ""
-													}`}></div>
-												<CheckCircleIcon
-													className={`m-selected ${
-														cartDetails.cartItems.find(
-															(i) => i._id === product._id,
-														)
-															? "active"
-															: ""
-													}`}
-												/>
-
 												<CardActionArea>
 													<CardMedia
 														component="img"
 														alt={product.description}
-														height="140"
+														height="80"
 														image={product.image}
 													/>
 													<CardContent>
 														<Typography
 															gutterBottom
-															variant="h5"
-															component="h2">
+														
+	                                                        className="card-name"
+															component="h6">
 															{product.name}
 														</Typography>
-														<Typography
-															variant="body2"
-															color="textSecondary"
-															component="p">
-															{product.description}
-														</Typography>
+														
 													</CardContent>
 												</CardActionArea>
 												<CardActions>
-													<Typography gutterBottom variant="h5" component="h5">
+													<Typography 
+													gutterBottom 
+													className="card-price"
+													component="h6">
 														$ &nbsp;{product.price}
 													</Typography>
 												</CardActions>
@@ -222,76 +210,13 @@ function Transactions() {
 										))}
 								</div>
 							</TabPanel>
-							{productCategories &&
-								productCategories.map((category, index) => (
-									<TabPanel value={value} index={index}>
-										<div className={classes.cardWrapper}>
-											{category.items.map((product) => (
-												<Card
-													onClick={() =>
-														cartDetails.updateCartItems(product._id)
-													}
-													className={classes.productCard}>
-													<div
-														className={`m-overlay ${
-															cartDetails.cartItems.find(
-																(i) => i._id === product._id,
-															)
-																? "active"
-																: ""
-														}`}></div>
-													<CheckCircleIcon
-														className={`m-selected ${
-															cartDetails.cartItems.find(
-																(i) => i._id === product._id,
-															)
-																? "active"
-																: ""
-														}`}
-													/>
-
-													<CardActionArea>
-														<CardMedia
-															component="img"
-															alt={product.description}
-															height="140"
-															image={product.image}
-														/>
-
-														<CardContent>
-															<Typography
-																gutterBottom
-																variant="h5"
-																component="h2">
-																{product.name}
-															</Typography>
-															<Typography
-																variant="body2"
-																color="textSecondary"
-																component="p">
-																{product.description}
-															</Typography>
-														</CardContent>
-													</CardActionArea>
-													<CardActions>
-														<Typography
-															gutterBottom
-															variant="h5"
-															component="h5">
-															$ &nbsp;{product.price}
-														</Typography>
-													</CardActions>
-												</Card>
-											))}
-										</div>
-									</TabPanel>
-								))}
+							
 						</Paper>
 					</Grid>
 					<Grid item sm={4} xs={12}>
 						<Paper>
 							<div
-								style={{ height: "50vh", overflowY: "auto" }}
+								style={{ height: "40vh", overflowY: "auto" }}
 								className="tableOne">
 								<Table aria-label="simple table">
 									<TableHead>
