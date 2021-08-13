@@ -1,5 +1,3 @@
-
-  
 import React, { useState, useEffect, Fragment } from 'react';
 import Cookies from 'js-cookie';
 import Joi from 'joi-browser';
